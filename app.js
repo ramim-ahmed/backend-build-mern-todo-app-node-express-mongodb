@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const usersRoutes = require('./backend/routes/usersRoute');
+const taskRoutes = require('./backend/routes/taskRoutes')
 const { routeErrors } = require('./backend/middleware/routeError');
 const serverErrors = require('./backend/middleware/serverError');
 // call db connection
@@ -16,7 +17,7 @@ app.use(express.urlencoded({extended: true}));
 
 // routes
 app.use('/api/users', usersRoutes)
-
+app.use('/api/tasks', taskRoutes)
 
 // home routes
 app.get('/', (req, res) => {
